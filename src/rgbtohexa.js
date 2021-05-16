@@ -1,10 +1,9 @@
 import './App.css';
 import { useState, useRef } from 'react';
-import ShowResult from './show-result.js';
 import ShowHex from './show-hex';
 
 function RgbToHex () {
-    const showValue = useRef(false);
+    const [showValue, setShowValue] = useState(false);
     const insertRed = useRef(255);
     const insertGreen = useRef(255);
     const insertBlue = useRef(255);
@@ -31,10 +30,9 @@ function RgbToHex () {
         const resultR = convertToHexa(R);
         const resultG = convertToHexa(G);
         const resultB = convertToHexa(B);
-
         const convertedToHexa = '#' + resultR + resultG + resultB;
         setStyleExample(convertedToHexa);
-        showValue.current = true;
+        setShowValue(true);
     }
 
     function validationValue (event) {
@@ -90,7 +88,7 @@ function RgbToHex () {
                         placeholder="255" />
                     <button onClick={handleClickCalcule}>Convert Color</button>
                 </section>
-                {showValue.current && <ShowHex styleExample={styleExample}
+                {showValue && <ShowHex styleExample={styleExample}
                     red={insertRed.current}
                     green={insertGreen.current}
                     blue={insertBlue.current} />}
@@ -99,5 +97,4 @@ function RgbToHex () {
     );
 }
 
-// <a href="https://www.google.com.br">RGB</a>
 export default RgbToHex;

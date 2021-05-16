@@ -1,8 +1,4 @@
 import { useState, useRef } from 'react';
-import logo from './logo.png';
-import Navigator from './nav.js';
-import Header from './header.js';
-import Footer from './footer.js';
 import ShowResult from './show-result.js';
 
 function HexaToRgb () {

@@ -1,10 +1,3 @@
-import { useState } from 'react';
-import logo from './logo.png';
-import Navigator from './nav.js';
-import Header from './header.js';
-import Footer from './footer.js';
-
-
 function Home () {
     return (
         <div className="App">
