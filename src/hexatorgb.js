@@ -14,12 +14,12 @@ function HexaToRgb () {
         const valueToCalculate = insertValue.replace('#', '');
         let R, G, B;
 
-        if (insertValue.length == 3) {
+        if (insertValue.length === 3) {
             R = valueToCalculate[0] + valueToCalculate[0];
             G = valueToCalculate[1] + valueToCalculate[1];
             B = valueToCalculate[2] + valueToCalculate[2];
             showValue.current = true;
-        } else if (insertValue.length == 6) {
+        } else if (insertValue.length === 6) {
             R = valueToCalculate[0] + valueToCalculate[1];
             G = valueToCalculate[2] + valueToCalculate[3];
             B = valueToCalculate[4] + valueToCalculate[5];
