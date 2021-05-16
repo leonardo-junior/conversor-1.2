@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './home.js';
+import HexaToRgb from './hexatorgb.js';
+import RgbToHex from './rgbtohexa.js';
+import Navigator from './nav.js';
+import Header from './header.js';
+import Footer from './footer.js';
 
-function App() {
+function App () {
+  const url = window.location.pathname;
+  let page;
+  if (url === '/') page = <Home />;
+  if (url === '/rgb') page = <HexaToRgb />;
+  if (url === '/hex') page = <RgbToHex />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigator />
+      <Header />
+      {page}
+      <Footer />
     </div>
+
   );
 }
-
 export default App;
