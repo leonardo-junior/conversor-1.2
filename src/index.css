@@ -103,15 +103,11 @@ button {
   padding: 1em;
 }
 
-.test {
-  min-height: calc(100vh - 452px)
-}
-
 footer {
   margin-top: auto;
   background: #2c2e44;
   color: white;
-  height: 5.8rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;

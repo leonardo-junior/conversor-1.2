@@ -66,7 +66,7 @@ function RgbToHex () {
   }
 
   return (
-    <div className="test">
+    <div>
       <div className="card-h-to-r">
         <header>RBG to Hex Color Converter</header>
 
