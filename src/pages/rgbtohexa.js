@@ -1,25 +1,23 @@
-import './App.css';
 import { useState, useRef } from 'react';
-import ShowHex from './show-hex';
+import ShowHex from '../show-hex';
 
 function RgbToHex () {
+    const [styleExample, setStyleExample] = useState('#FFFFFF');
     const [showValue, setShowValue] = useState(false);
+
     const insertRed = useRef(255);
     const insertGreen = useRef(255);
     const insertBlue = useRef(255);
-    const [styleExample, setStyleExample] = useState('#FFFFFF');
 
-    function handleChangeRed (event) {
-        validationValue(event);
-        insertRed.current = event.target.value;
+    function validationValue (event) {
+        const element = event.target;
+        (element.value < 0) && (element.value = 0);
+        (element.value > 255) && (element.value = 255);
     }
-    function handleChangeGreen (event) {
+
+    function handleChange (event, insertColor) {
         validationValue(event);
-        insertGreen.current = event.target.value;
-    }
-    function handleChangeBlue (event) {
-        validationValue(event);
-        insertBlue.current = event.target.value;
+        insertColor.current = event.target.value;
     }
 
     function handleClickCalcule () {
@@ -33,12 +31,6 @@ function RgbToHex () {
         const convertedToHexa = '#' + resultR + resultG + resultB;
         setStyleExample(convertedToHexa);
         setShowValue(true);
-    }
-
-    function validationValue (event) {
-        const element = event.target;
-        (element.value < 0) && (element.value = 0);
-        (element.value > 255) && (element.value = 255);
     }
 
     function convertToHexaLowValue (number) {
@@ -78,13 +70,13 @@ function RgbToHex () {
                 </span>
                 <section className="colors-input">
                     <span> (R) Red: </span>
-                    <input type="number" onChange={handleChangeRed}
+                    <input type="number" onChange={(e) => handleChange(e, insertRed)}
                         placeholder="255" />
                     <span> (G) Green: </span>
-                    <input type="number" onChange={handleChangeGreen}
+                    <input type="number" onChange={(e) => handleChange(e, insertGreen)}
                         placeholder="255" />
                     <span> (B) Blue: </span>
-                    <input type="number" onChange={handleChangeBlue}
+                    <input type="number" onChange={(e) => handleChange(e, insertBlue)}
                         placeholder="255" />
                     <button onClick={handleClickCalcule}>Convert Color</button>
                 </section>

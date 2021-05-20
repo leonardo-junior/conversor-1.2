@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import ShowResult from './show-result.js';
+import ShowResult from '../show-result.js';
 
 function HexaToRgb () {
     const [insertValue, setInsertValue] = useState('');
@@ -14,12 +14,12 @@ function HexaToRgb () {
         const valueToCalculate = insertValue.replace('#', '');
         let R, G, B;
 
-        if (insertValue.length === 3) {
+        if (valueToCalculate.length === 3) {
             R = valueToCalculate[0] + valueToCalculate[0];
             G = valueToCalculate[1] + valueToCalculate[1];
             B = valueToCalculate[2] + valueToCalculate[2];
             showValue.current = true;
-        } else if (insertValue.length === 6) {
+        } else if (valueToCalculate.length === 6) {
             R = valueToCalculate[0] + valueToCalculate[1];
             G = valueToCalculate[2] + valueToCalculate[3];
             B = valueToCalculate[4] + valueToCalculate[5];
@@ -32,7 +32,6 @@ function HexaToRgb () {
         const result = `rgb(${resultR}, ${resultG}, ${resultB})`;
 
         setStyleExample(result);
-        console.log(result);
     };
 
     return (
@@ -46,7 +45,7 @@ function HexaToRgb () {
                 <div>
                     <input type="text" onChange={handleChange}
                         placeholder="#FFFFFF"
-                        maxLength="6" />
+                        maxLength={insertValue[0] === '#' ? "7" : '6'} />
                     <button onClick={handleClickCalcule}>Convert Color</button>
                 </div>
                 {showValue.current && <ShowResult styleExample={styleExample} />}
@@ -55,5 +54,4 @@ function HexaToRgb () {
     );
 }
 
-// <a href="https://www.google.com.br">RGB</a>
 export default HexaToRgb;

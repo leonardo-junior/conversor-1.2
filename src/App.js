@@ -1,26 +1,35 @@
 import './App.css';
-import Home from './home.js';
-import HexaToRgb from './hexatorgb.js';
-import RgbToHex from './rgbtohexa.js';
-import Navigator from './nav.js';
-import Header from './header.js';
-import Footer from './footer.js';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+} from "react-router-dom";
+
+import Home from './pages/home.js';
+import HexaToRgb from './pages/hexatorgb.js';
+import RgbToHex from './pages/rgbtohexa.js';
+import Navigator from './components/nav.js';
+import Header from './components/header.js';
+import Footer from './components/footer.js';
 
 function App () {
-  const url = window.location.pathname;
-  let page;
-  if (url === '/') page = <Home />;
-  if (url === '/rgb') page = <HexaToRgb />;
-  if (url === '/hex') page = <RgbToHex />;
-
   return (
-    <div>
-      <Navigator />
-      <Header />
-      {page}
-      <Footer />
-    </div>
+    <Router>
+      <Switch>
+        <div>
+          <Navigator />
+          <Header />
 
+          <Route path="/" exact component={Home} />
+          <Route path="/rgb" component={RgbToHex} />
+          <Route path="/hex" component={HexaToRgb} />
+
+          <Footer />
+        </div>
+      </Switch>
+    </Router>
   );
 }
 export default App;
