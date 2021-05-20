@@ -99,14 +99,13 @@ function RgbToHex () {
           <button onClick={handleClickCalcule}>Convert Color</button>
         </section>
 
-        {showValue &&
-          (<ShowHex
+        {showValue && (
+          <ShowHex
             styleExample={styleExample}
             red={insertRed.current}
             green={insertGreen.current}
-            blue={insertBlue.current}
-          />)
-        }
+            blue={insertBlue.current} />
+        )}
 
       </div>
     </div >

@@ -12,14 +12,18 @@ body {
 button {
   cursor: pointer;
 }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .navigator{
-  margin: auto;
   display: flex;
   padding: 0;
   height: 3.5em;
   align-items: center;
-  max-width: 1300px;
-  margin: auto;
 }
 
 .navigator a{
@@ -104,6 +108,7 @@ button {
 }
 
 footer {
+  margin-top: auto;
   background: #2c2e44;
   color: white;
   height: 5.8rem;

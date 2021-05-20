@@ -15,7 +15,7 @@ function App () {
   return (
     <Router>
       <Switch>
-        <div>
+        <div className="page">
           <Navigator />
 
           <Header />
