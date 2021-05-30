@@ -1,0 +1,21 @@
+.hexResult {
+  color: "#ce9178";
+}
+
+.hexResult h1 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.2rem;
+}
+
+.hexResult > section:nth-child(2) {
+  color: #ce9178;
+  display: flex;
+  width: 35.7rem;
+  color: #b5cea8;
+  background-color: #282c34;
+  font-weight: bolder;
+  padding: 0.85rem;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+}

@@ -1,0 +1,33 @@
+.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.show h1 {
+  font-weight: bold;
+  text-align: left;
+  font-size: 1.25rem;
+  margin: 1rem 0 0.2rem 0;
+}
+
+.show :nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 35.7rem;
+  color: #b5cea8;
+  background-color: #282c34;
+  font-weight: bolder;
+  padding: 0.85rem;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+}
+
+.show :nth-child(4) {
+  height: 3.125rem;
+  width: 37.5rem;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+}

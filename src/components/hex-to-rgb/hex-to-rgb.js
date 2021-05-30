@@ -1,17 +1,18 @@
-import { useState, useRef } from 'react';
-import ShowResult from '../components/show-result';
+import { useState, useRef } from "react";
+import ShowResult from "../show-result/show-result.js";
+import style from "./hex-to-rgb.module.css";
 
-function HexaToRgb () {
-  const [insertValue, setInsertValue] = useState('');
-  const [styleExample, setStyleExample] = useState('rgb(0, 0, 0)');
+function HexaToRgb() {
+  const [insertValue, setInsertValue] = useState("");
+  const [styleExample, setStyleExample] = useState("rgb(0, 0, 0)");
   const showValue = useRef(false);
 
-  function handleChange (event) {
+  function handleChange(event) {
     setInsertValue(event.target.value);
-  };
+  }
 
-  function handleClickCalcule () {
-    const valueToCalculate = insertValue.replace('#', '');
+  function handleClickCalcule() {
+    const valueToCalculate = insertValue.replace("#", "");
     let R, G, B;
 
     if (valueToCalculate.length === 3) {
@@ -34,40 +35,37 @@ function HexaToRgb () {
     const result = `rgb(${resultR}, ${resultG}, ${resultB})`;
 
     setStyleExample(result);
-  };
+  }
 
   return (
-    <div class="test">
-      <section className="card-h-to-r">
+    <section className={style.rgb}>
+      <div>
         <header>Hex to RGB Color Converter</header>
 
-        <span>How to use:<br />
+        <span>
+          How to use:
+          <br />
           Enter a hex color code to convert to rgb
         </span>
 
-        <span>Hex color code:</span>
+        <label for="input">Hex color code:</label>
 
         <div>
           <input
             type="text"
+            id="input"
             onChange={handleChange}
             placeholder="#FFFFFF"
-            maxLength={insertValue[0] === '#' ? "7" : '6'}
+            maxLength={insertValue[0] === "#" ? "7" : "6"}
           />
 
-          <button onClick={handleClickCalcule}>
-            Convert Color
-          </button>
+          <button onClick={handleClickCalcule}>Convert Color</button>
         </div>
 
-        {showValue.current &&
-          <ShowResult styleExample={styleExample} />
-        }
-
-      </section>
-    </div>
+        {showValue.current && <ShowResult styleExample={styleExample} />}
+      </div>
+    </section>
   );
 }
-
 
 export default HexaToRgb;

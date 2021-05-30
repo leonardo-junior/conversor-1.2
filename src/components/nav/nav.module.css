@@ -1,0 +1,27 @@
+.navigator {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  max-height: 3.5rem;
+  max-width: 81.5rem;
+}
+
+.navigator a {
+  font-weight: bold;
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: gray;
+  padding: 0.5rem;
+}
+
+.navigator a > img {
+  height: 3rem;
+  width: 3rem;
+}
+
+.navigator a:hover {
+  color: black;
+}
+.navigator a:first-child {
+  margin-right: auto;
+}
